@@ -15,8 +15,10 @@ def search_wiki(title: str):
 
     pagenum = next(iter(response['query']['pages']))
 
+
     try:
         sum = response['query']['pages'][pagenum]['extract']
+        if sum == '': print('This article has no summary. It must be terribly complex.')
         print(sum)
     except KeyError:
         print('Wiki page not found')
